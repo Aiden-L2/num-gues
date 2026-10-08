@@ -19,21 +19,28 @@ while x > 0:
 
 import random
 n = random.randint(1, 100)
-guess = 1
+guess = 0
+history = []
 while True:
-    z = int(input("Guess the number (or exit the game):"))
-    if z == "exit":
+    z = int(input("Guess the number 1-100(or exit the game):"))
+    history.append(z)
+    if int(z) == "exit":
         print("The number was", n)
         break
-    elif z > n:
+    elif int(z) > n:
         print("lower")
         guess = guess + 1
-    elif z < n:
+        print(history)
+    elif int(z) < n:
         print("higher")
         guess = guess + 1
-    elif z == n:
+        print(history)
+    elif int(z) == n:
+        guess = guess + 1
         print("CORRECT! It took you", str(guess), "attempt")
+        print("num history:", history)
         break
     if guess == 10:
         print("You ran out of attempts, the number was", n)
+        print("num history:", history)
         break
